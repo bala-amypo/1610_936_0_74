@@ -25,12 +25,18 @@ public void setcreated(String created){
     this.created=created;
 }
 public Integer getid(){
-    return this.id=id;
+    return id;
 }
 public String getusername(){
-    return this.username=username;
+    return username;
 }
 public String getpassword(){
-    return this.password=password;
+    return password;
+}
+public String getemail(){
+    return email;
+}
+public String getcreated(){
+    return created;
 }
 }
