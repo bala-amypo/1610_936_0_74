@@ -15,5 +15,22 @@ public void setid(Integer id){
 public void setusername(String username){
     this.username=username;
 }
-public void setpassword(String password)
+public void setpassword(String password){
+    this.password=password
+}
+public void setemail(String email){
+    this.email=email;
+}
+public void setcreated(String created){
+    this.created=created;
+}
+public Integer getid(){
+    return this.id=id;
+}
+public String getusername(){
+    return this.username=username;
+}
+public String getpassword(){
+    return this.password=password;
+}
 }
