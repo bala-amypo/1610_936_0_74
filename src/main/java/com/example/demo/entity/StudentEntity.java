@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -43,13 +43,13 @@ public String getpassword(){
 public String getemail(){
     return email;
 }
-public String getcreated(){
+public  getcreated(){
     return created;
 }
 public StudentEntity(){
 
 }
-public StudentEntity(Integer id,String username,String password,String email,String ceated){
+public StudentEntity(Integer id,String username,String password,String email,Date created){
     this.id=id;
     this.username=username;
     this.password=password;
