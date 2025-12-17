@@ -23,7 +23,7 @@ public void setusername(String username){
     this.username=username;
 }
 public void setpassword(String password){
-    this.password=password
+    this.password=password;
 }
 public void setemail(String email){
     this.email=email;
