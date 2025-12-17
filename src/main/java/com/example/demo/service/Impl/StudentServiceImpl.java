@@ -1,6 +1,6 @@
 package com.example.demo.service.Impl;
 
-import org.spring
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.sterotype.Service;
 
 import com.example.demo.entity.StudentEntity;
@@ -9,7 +9,9 @@ import com.example.demo.service.StudentService;
 @Service
 public class StudentServiceImpl implements StudentService{
        @Autowired StudentRepo student;
+       //use save(),findAll(),findById(),deleteById(),existById();
       public StudentEntity postData(StudentEntity stu);
+         return student.save()
 } 
 
 }
