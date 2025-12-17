@@ -28,7 +28,7 @@ public void setpassword(String password){
 public void setemail(String email){
     this.email=email;
 }
-public void setcreated(String created){
+public void setcreated(Date created){
     this.created=created;
 }
 public Integer getid(){
