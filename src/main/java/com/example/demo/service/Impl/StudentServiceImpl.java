@@ -12,9 +12,9 @@ public class StudentServiceImpl implements StudentService{
        @Autowired StudentRepo student;
        //use save(),findAll(),findById(),deleteById(),existById();
 
-@Override
-      public StudentEntity postData(StudentEntity stu);
-         return student.save(stu);
-} 
+      @Override
+      public StudentEntity postData(StudentEntity stu){
+    return student.save(stu);
+      }
 
 }
