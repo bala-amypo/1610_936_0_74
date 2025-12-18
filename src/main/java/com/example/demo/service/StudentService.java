@@ -11,4 +11,6 @@ public interface StudentService {
     String DeleteData(int id); //delete
   
     StudentEntity getData(int id); //findById
+
+    
 }
