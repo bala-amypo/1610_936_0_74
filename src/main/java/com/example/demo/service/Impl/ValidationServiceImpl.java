@@ -13,7 +13,7 @@ public class ValidationServiceImpl implements ValidationService{
        //use save(),findAll(),findById(),deleteById(),existById();
 
       @Override
-      public ValidationEntity postData(ValidationEntity stu){
-           return student.save(stu);
+      public ValidationEntity postData(ValidationEntity val){
+           return student.save(val);
       }
 }
