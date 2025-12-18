@@ -9,7 +9,7 @@ import com.example.demo.repository.StudentRepo;
 import com.example.demo.service.StudentService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 public class StudentServiceImpl implements StudentService{

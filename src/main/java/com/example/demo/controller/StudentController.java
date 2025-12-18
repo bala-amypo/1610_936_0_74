@@ -10,6 +10,9 @@ import com.example.demo.service.StudentService;
 import com.example.demo.entity.StudentEntity;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 @RestController
 public class StudentController{
     @Autowired  StudentService ser;
@@ -21,6 +24,10 @@ public class StudentController{
     @GetMapping("/get")
     public List<StudentEntity>getData(){
         return ser.getAllData();
+    }
+    @DeleteMapping("/delete/{id}")
+    public String deleteData(@PathVariable int id){
+        return ser.
     }
 
 
