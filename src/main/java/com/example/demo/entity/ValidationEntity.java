@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
 
 
@@ -65,7 +66,7 @@ public class ValidationEntity{
        return age;
   }
   public ValidationEntity(){
-    
+
   }
   public ValidationEntity(Long id,
           @NotNull @Size(min =2,max=6,message="must be 2 to 6 character") String username,
