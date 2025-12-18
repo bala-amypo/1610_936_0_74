@@ -13,6 +13,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import org.springframework.web.bind.annotation.PutMapping;
+
 @RestController
 public class StudentController{
     @Autowired  StudentService ser;
@@ -33,6 +35,9 @@ public class StudentController{
     public StudentEntity getDataId(@PathVariable int id){
         return ser.getData(id);
     }
-
+    @PutMapping("/put/{id}")
+    public StudentEntity putdata(@PathVariable int id,@RequestBody StudentEntity stu ){
+        return ser.putData(id,)
+    }
 
 }
