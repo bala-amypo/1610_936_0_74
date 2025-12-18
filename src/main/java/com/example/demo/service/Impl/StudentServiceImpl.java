@@ -7,6 +7,8 @@ import com.example.demo.entity.StudentEntity;
 import com.example.demo.repository.StudentRepo;
 import com.example.demo.service.StudentService;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService{
        @Autowired StudentRepo student;
@@ -18,7 +20,7 @@ public class StudentServiceImpl implements StudentService{
       }
       @Override
       public List<StudentEntity>getAllData(){
-           return student.findAll
+           return student.findAll();
       }
 
 }
