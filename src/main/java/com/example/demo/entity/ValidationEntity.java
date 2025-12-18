@@ -64,7 +64,9 @@ public class ValidationEntity{
    public int getAge(){
        return age;
   }
-  public 
+  public ValidationEntity(){
+    
+  }
   public ValidationEntity(Long id,
           @NotNull @Size(min =2,max=6,message="must be 2 to 6 character") String username,
           @Email(message ="Email is not valid") String email,
