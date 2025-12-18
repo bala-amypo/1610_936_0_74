@@ -18,7 +18,7 @@ public class StudentServiceImpl implements StudentService{
 
       @Override
       public StudentEntity postData(StudentEntity stu){
-    return student.save(stu);
+           return student.save(stu);
       }
       @Override
       public List<StudentEntity>getAllData(){
