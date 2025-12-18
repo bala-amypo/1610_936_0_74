@@ -9,7 +9,7 @@ import com.example.demo.repository.StudentRepo;
 import com.example.demo.service.StudentService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -25,9 +25,9 @@ public class StudentServiceImpl implements StudentService{
            return student.findAll();
       }
       @Override
-      public String DeleteData(@PathVariable int id){
+      public String DeleteData(int id){
               student.deleteById(id);
-              
+              return "Deleted Successfuly";
 
       }
 
