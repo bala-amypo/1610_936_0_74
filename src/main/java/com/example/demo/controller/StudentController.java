@@ -29,7 +29,10 @@ public class StudentController{
     public String delData(@PathVariable int id){
         return ser.DeleteData(id);
     }
-    @
+    @GetMapping("/getId/{id}")
+    public StudentEntity getDataId(@PathVariable int id){
+        return ser.getData(id);
+    }
 
 
 }
