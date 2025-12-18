@@ -16,3 +16,4 @@ public class ValidationServiceImpl implements ValidationService{
       public ValidationEntity postData(ValidationEntity stu){
            return student.save(stu);
       }
+}
