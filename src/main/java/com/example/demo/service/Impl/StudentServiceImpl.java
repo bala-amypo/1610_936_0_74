@@ -40,6 +40,7 @@ public class StudentServiceImpl implements StudentService{
             stu.setId(id);
             return student.save(stu);
          }
+         return null;
       }
 
 }
