@@ -19,5 +19,9 @@ public class  ValidationController{
     public  ValidationEntity sendData(@Valid @RequestBody  ValidationEntity val){
        return ser.postData(val);
     }
+    @Override
+      public StudentEntity getData(int id){
+        return student.findById(id).orElse(null);
+      }
 }
    
