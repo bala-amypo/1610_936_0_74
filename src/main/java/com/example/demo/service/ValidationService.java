@@ -1,8 +1,7 @@
 package com.example.demo.service;
 import java.util.List;
 
-import com.example.demo.entity.StudentEntity;
-public interface StudentService {
-    
-    StudentEntity postData(StudentEntity stu); //post
-}
+import com.example.demo.entity.ValidationEntity;
+public interface ValidationService {
+     ValidationEntity postData(ValidationEntity stu); //post
+ }
