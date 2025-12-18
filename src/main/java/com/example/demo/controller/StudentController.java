@@ -29,6 +29,7 @@ public class StudentController{
     public String delData(@PathVariable int id){
         return ser.DeleteData(id);
     }
+    @
 
 
 }
