@@ -33,7 +33,7 @@ public class ValidationEntity{
       
    public void setId(Long id){
       this.id=id;
-}
+   }
    public void setUsername(String username){
       this.username=username;
    }
@@ -47,19 +47,23 @@ public class ValidationEntity{
       this.age=age;
    }
 
-      public Integer getId(){
-    return id;
-}
-public String getUsername(){
-    return username;
-}
-public String getPassword(){
-    return password;
-}
-public String getEmail(){
-    return email;
-}
-public Date getCreated(){
-    return created;
-}
+   public Long getId(){
+       return id;
+   }
+   public String getUsername(){
+       return username;
+   }
+   public String getPassword(){
+       return password;
+   }
+   public String getEmail(){
+       return email;
+  }
+   public int getAge(){
+       return age;
+  }
+
+  public ValidationEntity(Long id,
+          @NotNull @Size(min =2,max=6,message="must be 2 to 6 character") String username,
+          )
 }
