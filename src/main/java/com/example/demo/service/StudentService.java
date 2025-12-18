@@ -12,5 +12,6 @@ public interface StudentService {
   
     StudentEntity getData(int id); //findById
 
-    
+    StudentEntity putData(int id,StudentEntity stu); //put
+
 }
