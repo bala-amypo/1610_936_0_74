@@ -11,7 +11,7 @@ import com.example.demo.service.StuService;
 
 
 @Service
-public class StuServiceImpl implements StuTimeStampService{
+public class StuServiceImpl implements StuService{
       @Autowired StuRepo time;
 
       @Override
