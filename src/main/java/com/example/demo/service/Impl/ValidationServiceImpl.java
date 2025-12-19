@@ -18,7 +18,7 @@ public class ValidationServiceImpl implements ValidationService{
            return student.save(val);
       }
       @Override
-      public ValidationEntity getData(int id){
+      public ValidationEntity getData(Long id){
         return student.findById(id).orElseThrow(()->new ValidationException("Invalid Id" +id));
       }
       
