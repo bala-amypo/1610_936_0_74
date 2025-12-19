@@ -12,7 +12,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
 
-
+import lombok.Data;
+import 
 @Entity
 public class ValidationEntity{
       @Id
