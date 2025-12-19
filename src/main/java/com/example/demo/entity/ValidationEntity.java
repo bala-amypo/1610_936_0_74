@@ -13,8 +13,11 @@ import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
 
 import lombok.Data;
-import 
+import lombok
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgs
 public class ValidationEntity{
       @Id
       @GeneratedValue(strategy=GenerationType.IDENTITY)
