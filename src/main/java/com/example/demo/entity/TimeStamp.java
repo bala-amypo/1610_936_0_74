@@ -20,9 +20,9 @@ public class TimeStamp{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
-    Long id;
-    String name;
-    String email;
-    LocalDateTime createAt;
-    LocalDateTime updateAt;
+    private Long id;
+    private String name;
+    private String email;
+    private LocalDateTime createAt;
+    private LocalDateTime updateAt;
 }
