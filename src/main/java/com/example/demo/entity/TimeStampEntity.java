@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.PrePersist;
-
+import jakarta.persistence.PreUpdate;
 @Entity
 @Data
 @AllArgsConstructor
@@ -35,5 +35,9 @@ public class TimeStampEntity{
         this.UpdatedAt=now;
     }
     @PreUpdate
-    
+    public void Onupdate(){
+        LocalDateTime now=LocalDateTime().now();
+        this.UpdatedAt=now;
+
+    }
 }
