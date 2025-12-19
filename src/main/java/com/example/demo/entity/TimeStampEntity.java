@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.PrePersist
+import jakarta.persistence.PrePersist;
 
 @Entity
 @Data
@@ -27,4 +27,11 @@ public class TimeStampEntity{
     private String email;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+
+    @PrePersist
+    public void Oncreate(){
+        LocalDateTime now=new LocalDateTime();
+        this.createdAt=now;
+        this.UpdatedAt
+    }
 }
