@@ -16,11 +16,11 @@ public class  ValidationController{
     @Autowired   ValidationService ser;
 
     @PostMapping("/postted")
-    public  ValidationEntity sendData(@Valid @RequestBody  ValidationEntity val){
+    public  ValidationEntity sendData(@Valid @RequestBody  ValidationEntity val ){
        return ser.postData(val);
     }
-    @GetMapping("/getted")
-      public StudentEntity getData(@Valid ){
+    @GetMapping("/getted/{id}")
+      public ValidationEntity getData(@Valid  ){
         return ser.findById(id);
       }
 }
