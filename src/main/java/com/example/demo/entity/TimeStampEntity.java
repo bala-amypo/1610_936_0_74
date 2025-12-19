@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TimeStamp{
+public class TimeStampEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     

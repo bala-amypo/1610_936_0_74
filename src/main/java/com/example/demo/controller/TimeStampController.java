@@ -5,15 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.service.PostStampService;
-import com.example.demo.entity.PostStampEntity;
+import com.example.demo.service.TimeStampService;
+import com.example.demo.entity.TimeStampEntity;
 
 @RestController
 public class TimeStampController{
     @Autowired  TimeStampService ser;
 
     @PostMapping("/post")
-    public PostStampEntity sendData(@RequestBody PostStampEntity ti){
+    public TimeStampEntity sendData(@RequestBody TimeStampEntity ti){
        return time.postData(ti);
     }
 }
