@@ -4,6 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.;
+import jakarta.persistence.Id;
+
+
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -19,6 +23,8 @@ public class IdcardEntity{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private int card_no;
-
+  
+    @OneToOne
+    @JoinColumn
     private StuEntity student;
 }
