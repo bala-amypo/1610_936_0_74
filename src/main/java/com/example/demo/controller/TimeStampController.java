@@ -12,7 +12,7 @@ import com.example.demo.entity.TimeStampEntity;
 public class TimeStampController{
     @Autowired  TimeStampService ser;
 
-    @PostMapping("/post")
+    @PostMapping("/posts")
     public TimeStampEntity sendData(@RequestBody TimeStampEntity ti){
        return time.postData(ti);
     }
