@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 
 import com.example.demo.entity.TimeStampEntity;
-import com.example.demo.repository.StudentRepo;
-import com.example.demo.service.StudentService;
+import com.example.demo.repository.TimeStampRepo;
+import com.example.demo.service.TimeStampService;
 
 
 @Service
