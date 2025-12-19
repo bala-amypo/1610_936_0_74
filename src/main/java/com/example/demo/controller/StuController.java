@@ -16,4 +16,8 @@ public class StuController{
     public StuEntity sendData(@RequestBody StuEntity ti){
        return ser.postData(ti);
     }
+    @GetMapping("/ge")
+    public List<StuEntity>getData(){
+        return ser.getAllData();
+    }
 }
