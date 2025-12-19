@@ -9,8 +9,8 @@ import com.example.demo.service.PostStampService;
 import com.example.demo.entity.PostStampEntity;
 
 @RestController
-public class PostStampController{
-    @Autowired  PostStampService ser;
+public class TimeStampController{
+    @Autowired  TimeStampService ser;
 
     @PostMapping("/post")
     public PostStampEntity sendData(@RequestBody PostStampEntity ti){

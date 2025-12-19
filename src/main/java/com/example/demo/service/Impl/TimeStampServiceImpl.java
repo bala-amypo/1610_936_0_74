@@ -11,7 +11,7 @@ import com.example.demo.service.TimeStampService;
 
 
 @Service
-public class TimeStampServiceImpl extends TimeStampService{
+public class TimeStampServiceImpl implements TimeStampService{
       @Autowired TimeStampRepo time;
 
       @Override
