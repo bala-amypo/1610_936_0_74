@@ -7,5 +7,7 @@ public class GlobalException{
 
 
     @ExceptionHandler(ValidationException.class)
-    
+    public ResponseBody<String> handleValidationException(){
+        
+    }
 }
