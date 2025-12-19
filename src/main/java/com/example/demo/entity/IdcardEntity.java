@@ -4,8 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.;
-import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
 
 
 
@@ -25,6 +25,6 @@ public class IdcardEntity{
     private int card_no;
   
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name="student_id")
     private StuEntity student;
 }
