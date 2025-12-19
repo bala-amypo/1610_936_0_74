@@ -12,7 +12,7 @@ import com.example.demo.service.TimeStampService;
 
 @Service
 public class TimeStampServiceImpl extends TimeStampService{
-       @Autowired TimeStampRepo time;
+      @Autowired TimeStampRepo time;
 
       @Override
       public TimeStampEntity postData(TimeStampEntity ti){
