@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.example.demo.entity.StuEntity;
-import com.example.demo.repository.StuStampRepo;
+import com.example.demo.repository.StuRepo;
 import com.example.demo.service.StuService;
 
 

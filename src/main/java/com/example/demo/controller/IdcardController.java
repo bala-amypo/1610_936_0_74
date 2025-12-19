@@ -10,10 +10,10 @@ import com.example.demo.entity.IdcardEntity;
 
 @RestController
 public class IdcardController{
-    @Autowired  TimeStampService ser;
+    @Autowired  IdcardService ser;
 
-    @PostMapping("/posts")
-    public TimeStampEntity sendData(@RequestBody TimeStampEntity ti){
+    @PostMapping("/po")
+    public IdcardEntity sendData(@RequestBody IdcardEntity ti){
        return ser.postData(ti);
     }
 }
