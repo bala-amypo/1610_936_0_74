@@ -15,7 +15,7 @@ public class IdcardServiceImpl implements IdcardService{
       @Autowired IdcardRepo time;
 
       @Override
-      public IdcardEntity postData(TimeStampEntity ti){
+      public IdcardEntity postData(IdcardEntity ti){
            return time.save(ti);
       }
 }
