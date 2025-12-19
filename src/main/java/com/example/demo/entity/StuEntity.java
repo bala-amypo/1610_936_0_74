@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
 public class StuEntity{
-     Private 
+     private Integer id;
+     private String name;
+     private String
 }
