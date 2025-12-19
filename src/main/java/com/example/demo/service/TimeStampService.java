@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.TimeStampEntity;
-public Interface TimeStampService{
+public interface TimeStampService{
     TimeStampEntity postData(TimeStampEntity ti);
 }

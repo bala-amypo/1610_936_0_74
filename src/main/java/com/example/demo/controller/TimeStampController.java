@@ -5,15 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.demo.service.StudentService;
-import com.example.demo.entity.StudentEntity;
+import com.example.demo.service.PostStampService;
+import com.example.demo.entity.PostStampEntity;
 
 @RestController
-public class StudentController{
+public class PostStampController{
     @Autowired  PostStampService ser;
 
     @PostMapping("/post")
-    public StudentEntity sendData(@RequestBody StudentEntity stu){
-       return ser.postData(stu);
+    public PostStampEntity sendData(@RequestBody PostStampEntity ti){
+       return time.postData(ti);
     }
 }
