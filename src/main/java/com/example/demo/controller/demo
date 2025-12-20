@@ -59,3 +59,286 @@ public interface StudentService {
     StudentEntity putData(int id,StudentEntity stu); //put
 
 }
+
+
+package com.example.demo.service.Impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.example.demo.entity.StudentEntity;
+import com.example.demo.repository.StudentRepo;
+import com.example.demo.service.StudentService;
+
+import java.util.List;
+
+
+@Service
+public class StudentServiceImpl implements StudentService{
+       @Autowired StudentRepo student;
+       //use save(),findAll(),findById(),deleteById(),existById();
+
+      @Override
+      public StudentEntity postData(StudentEntity stu){
+           return student.save(stu);
+      }
+      @Override
+      public List<StudentEntity>getAllData(){
+           return student.findAll();
+      }
+      @Override
+      public String DeleteData(int id){
+              student.deleteById(id);
+              return "Deleted Successfuly";
+
+      }
+      @Override
+      public StudentEntity getData(int id){
+        return student.findById(id).orElse(null);
+      }
+      @Override
+      public StudentEntity putData(int id,StudentEntity stu){
+         if(student.existsById(id)){
+            stu.setId(id);
+            return student.save(stu);
+         }
+         return null;
+      }
+
+}
+
+
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.demo.service.StudentService;
+import com.example.demo.entity.StudentEntity;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import org.springframework.web.bind.annotation.PutMapping;
+
+@RestController
+public class StudentController{
+    @Autowired  StudentService ser;
+
+    @PostMapping("/post")
+    public StudentEntity sendData(@RequestBody StudentEntity stu){
+       return ser.postData(stu);
+    }
+    @GetMapping("/get")
+    public List<StudentEntity>getData(){
+        return ser.getAllData();
+    }
+    @DeleteMapping("/delete/{id}")
+    public String delData(@PathVariable int id){
+        return ser.DeleteData(id);
+    }
+    @GetMapping("/getId/{id}")
+    public StudentEntity getDataId(@PathVariable int id){
+        return ser.getData(id);
+    }
+    @PutMapping("/put/{id}")
+    public StudentEntity putdata(@PathVariable int id,@RequestBody StudentEntity stu ){
+        return ser.putData(id,stu);
+    }
+
+}
+
+
+
+
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.demo.service.ValidationService;
+import com.example.demo.entity.ValidationEntity;
+
+
+import jakarta.validation.Valid;
+
+
+@RestController
+public class  ValidationController{
+    @Autowired   ValidationService ser;
+
+    @PostMapping("/postted")
+    public  ValidationEntity sendData(@Valid @RequestBody  ValidationEntity val ){
+       return ser.postData(val);
+    }
+    @GetMapping("/getted/{id}")
+      public ValidationEntity getStudentId(@PathVariable Long id ){
+        return ser.getData(id);
+      }
+}
+   
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.demo.service.IdcardService;
+import com.example.demo.entity.IdcardEntity;
+
+@RestController
+public class IdcardController{
+    @Autowired  IdcardService ser;
+
+    @PostMapping("/po")
+    public IdcardEntity sendData(@RequestBody IdcardEntity ti){
+       return ser.postData(ti);
+    }
+    @GetMapping("/g")
+    public List<IdcardEntity>getData(){
+        return ser.getAllData();
+    }
+}
+
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.demo.service.StuService;
+import com.example.demo.entity.StuEntity;
+
+@RestController
+public class StuController{
+    @Autowired  StuService ser;
+
+    @PostMapping("/postss")
+    public StuEntity sendData(@RequestBody StuEntity ti){
+       return ser.postData(ti);
+    }
+    @GetMapping("/ge")
+    public List<StuEntity>getData(){
+        return ser.getAllData();
+    }
+}
+
+
+
+package com.example.demo.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.demo.service.TimeStampService;
+import com.example.demo.entity.TimeStampEntity;
+
+@RestController
+public class TimeStampController{
+    @Autowired  TimeStampService ser;
+
+    @PostMapping("/posts")
+    public TimeStampEntity sendData(@RequestBody TimeStampEntity ti){
+       return ser.postData(ti);
+    }
+}
+
+
+
+package com.example.demo.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ValidationEntity{
+      @Id
+      @GeneratedValue(strategy=GenerationType.IDENTITY)
+      private Long id;  // wrapper class so L  otherwise long
+
+      @NotNull
+      @Size(min =2,max=6,message="must be 2 to 6 character")
+      private String username;
+
+      @Email(message ="Email is not valid")
+      private String email;
+
+      @Size(min=2 ,max=7,message="must be 2 to 7 character")
+      @NotNull(message="Password is mandatory")
+      private String password;
+
+      @Min(18)
+      @Positive(message="Age must be a positive number") 
+      private int age;
+          
+}
+
+
+
+package com.example.demo.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+
+
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class IdcardEntity{
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
+    private int card_no;
+  
+    @OneToOne
+    @JoinColumn(name="student_id")
+    private StuEntity student;
+}
+
+
