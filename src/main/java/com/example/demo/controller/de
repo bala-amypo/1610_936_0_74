@@ -1,0 +1,98 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ValidationEntity{
+      @Id
+      @GeneratedValue(strategy=GenerationType.IDENTITY)
+      private Long id;  // wrapper class so L  otherwise long
+
+      @NotNull
+      @Size(min =2,max=6,message="must be 2 to 6 character")
+      private String username;
+
+      @Email(message ="Email is not valid")
+      private String email;
+
+      @Size(min=2 ,max=7,message="must be 2 to 7 character")
+      @NotNull(message="Password is mandatory")
+      private String password;
+
+      @Min(18)
+      @Positive(message="Age must be a positive number") 
+      private int age;
+          
+}
+
+
+package com.example.demo.repository;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.entity.ValidationEntity;
+
+@Repository
+public interface ValidationRepo extends JpaRepository<ValidationEntity,Long>{
+    
+}
+
+
+package com.example.demo.service;
+import java.util.List;
+
+import com.example.demo.entity.ValidationEntity;
+public interface ValidationService {
+     ValidationEntity postData(ValidationEntity stu); //post
+ 
+     ValidationEntity getData(Long id); 
+ }
+
+
+
+ package com.example.demo.service.Impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.ValidationEntity;
+import com.example.demo.repository.ValidationRepo;
+import com.example.demo.service.ValidationService;
+import com.example.demo.exception.ValidationException;
+
+@Service
+public class ValidationServiceImpl implements ValidationService{
+       @Autowired ValidationRepo student;
+       //use save(),findAll(),findById(),deleteById(),existById();
+
+      @Override
+      public ValidationEntity postData(ValidationEntity val){
+           return student.save(val);
+      }
+      @Override
+      public ValidationEntity getData(Long id){
+        return student.findById(id).orElseThrow(()->new ValidationException("Invalid Id" +id));
+      }
+      
+}
+
+
+
+
