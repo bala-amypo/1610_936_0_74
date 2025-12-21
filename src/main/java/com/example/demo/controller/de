@@ -95,4 +95,61 @@ public class ValidationServiceImpl implements ValidationService{
 
 
 
+package com.example.demo.controller;
 
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.demo.service.ValidationService;
+import com.example.demo.entity.ValidationEntity;
+
+
+import jakarta.validation.Valid;
+
+
+@RestController
+public class  ValidationController{
+    @Autowired   ValidationService ser;
+
+    @PostMapping("/postted")
+    public  ValidationEntity sendData(@Valid @RequestBody  ValidationEntity val ){
+       return ser.postData(val);
+    }
+    @GetMapping("/getted/{id}")
+      public ValidationEntity getStudentId(@PathVariable Long id ){
+        return ser.getData(id);
+      }
+}
+   
+
+
+   package com.example.demo.exception;
+public class ValidationException extends RuntimeException{
+       
+       public ValidationException(String message){
+        super(message);  //to access parent method 
+       }
+    
+}
+
+
+package com.example.demo.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.http.ResponseEntity;
+
+@RestControllerAdvice
+public class GlobalException{
+
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<String> handleValidationException(ValidationException ex){
+           return new ResponseEntity<String>(ex.getMessage(),HttpStatus.BAD_GATEWAY);
+    }
+}
